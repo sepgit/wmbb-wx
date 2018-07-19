@@ -44,6 +44,7 @@ body{max-width:640/@fz;min-width:320/@fz;margin: 0 auto;background: #ccc;height:
         li{
             div{float: left;height:50/@fz;line-height:50/@fz;width:65%;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;font-size:18/@fz}
             span{float: right;height:50/@fz;line-height:50/@fz;width:35%;text-align: right;overflow:hidden;text-overflow:ellipsis;font-size:18/@fz}
+            
         }
     }
 }
@@ -66,8 +67,19 @@ body{max-width:640/@fz;min-width:320/@fz;margin: 0 auto;background: #ccc;height:
         &:nth-child(3){text-align: center;}
     }
 }
+.re_lists {position: relative;z-index: 1000;
+    &:after{position: absolute;content: '';width:0;height:0;top:22%;right:0;z-index: 1100;border-style: solid;border-width:10/@fz;border-color:RGBA(153,153,102,0) RGBA(153,153,102,0) RGBA(153,153,102,0) RGBA(153,153,153,1);}
+}
 .re_lists:nth-child(even) {background: #f3f3f3;}
 .re_lists:nth-child(odd) {background: #e6e6e6;}
+
+.zj_re_lists{display:flex;justify-content: space-between;height:40/@fz;
+    span{height:40/@fz;width:33%;font-size:16/@fz;line-height:40/@fz;text-align: center}
+} 
+
+.zj_re_lists:nth-child(even) {background: #f3f3f3;}
+.zj_re_lists:nth-child(odd) {background: #e6e6e6;}
+
 .re_comp_detail{padding-bottom:50/@fz;background: #fff;}
 .re_comp_compname{height:150/@fz;background: #fff;
     .bg{background: #0b91f0;height:60/@fz;}

@@ -79,24 +79,25 @@ class Recommend extends Component {
     getDataList(url,[],this.recommendList)
   }
   recommendList(value){
-      console.log(value);
+      // console.log(value);
       this.setState({
         recommendLists:value,
       })
   }
   showLists() {
     let value = this.state.recommendLists;
+    console.log(value)
     return value.map(datas =>{
-        let logos;
-        if (datas.logo != null ) {
-             logos = HTTPED + datas.logo
+        let ExpertHead;
+        if (datas.ExpertHead != null ) {
+          ExpertHead = HTTPED + datas.ExpertHead
         }else {
-            logos =  HTTPED + 'images/nlogo.png';
+          ExpertHead =  HTTPED + 'images/nlogo.png';
         }
         
         return <div className="expertList" key={datas.experts} >
             <div className="expertList_left">
-                <div className="expertList_logo"><img src={logos} alt="头像"/></div>
+                <div className="expertList_logo"><img src={ExpertHead} alt="头像"/></div>
                 <div className="expertList_"></div>
             </div>
             <div className="expertList_right">
@@ -115,7 +116,7 @@ class Recommend extends Component {
     let experts = e.target.getAttribute('num');
     let comp = e.target.getAttribute('comp');
     
-    console.log(comp);
+    // console.log(comp);
     let user = e.target.getAttribute('user');
     this.setState({
       userID:user
@@ -137,20 +138,20 @@ class Recommend extends Component {
 
   }
   back(b){
-    console.log(b);
+    // console.log(b);
     this.setState({
       compDetail:b.comp
     })
   }
   //普通运价
   ptlists(s) {
-    console.log(this.state.ptIndex);
+    // console.log(this.state.ptIndex);
     let user = this.state.userID;
     let urlpt = 'api/experts/Adva/List/?&user='+ user+'&advaType=0&rowCount=4&pageIndex='+s;
     getDataListRe(urlpt,[] ,this.ptAdva);
   }
   ptAdva(value) {
-    console.log(value);
+    // console.log(value);
     if(value.err == false ) {
       this.setState({
         ptLists:value.rows,
@@ -163,7 +164,7 @@ class Recommend extends Component {
     let data = this.state.ptLists;
     // console.log(data);
     return data.map(datas => {
-        return <li className="re_lists" key={datas.adva}>
+        return <li className="zj_re_lists" key={datas.adva}>
             <span>{datas.servName}</span>
             <span>{datas.depaPortName}</span>
             <span>{datas.destPortName}</span>
@@ -204,16 +205,15 @@ class Recommend extends Component {
       this.setState({
         tzLists:value.rows,
         tzAllrows:Math.ceil(value.totalRows/4),
-        tzIndex:1,
         tzrowCount:value.rowCount,
       })
     }
   }
   tzshowlists() {
     let data = this.state.tzLists;
-    // console.log(data);
+    console.log(data);
     return data.map(datas => {
-        return <li className="re_lists" key={datas.adva}>
+        return <li className="zj_re_lists" key={datas.adva}>
             <span>{datas.servName}</span>
             <span>{datas.depaPortName}</span>
             <span>{datas.destPortName}</span>
@@ -228,6 +228,7 @@ class Recommend extends Component {
       this.setState({
         tzIndex:s,
       })
+      console.log(s);
       this.tzlists(s)
     } 
   }
@@ -254,19 +255,18 @@ class Recommend extends Component {
       this.setState({
         fwLists:value.rows,
         fwAllrows:Math.ceil(value.totalRows/4),
-        fwIndex:1,
         fwrowCount:value.rowCount,
       })
     }
   }
   fwshowlists() {
     let data = this.state.fwLists;
-    // console.log(data);
+
     return data.map(datas => {
-        return <li className="re_lists" key={datas.cont}>
+        return <li className="zj_re_lists" key={datas.cont}>
             <span>{datas.servName}</span>
-            <span>{datas.depaPortName}</span>
-            <span>{datas.destPortName}</span>
+            <span>{datas.servOptiName}</span>
+            <span>{datas.portName}</span>
         </li>
     })
   }
@@ -346,9 +346,9 @@ class Recommend extends Component {
           this.state.Pagestatus == 'recommendDetail' ?
           <div>
             <div className="re_comp_detail">
-                <BackT tit="会员介绍" backonClick={this.torecommend} ></BackT>
+                <BackT tit="专家推荐" backonClick={this.torecommend} ></BackT>
                 <div className="titleback"></div>
-                <div className="r_titele text_cen">会员介绍</div>
+                {/* <div className="r_titele text_cen">专家推荐</div> */}
                 <div className="re_comp_compname">
                    
                     {/* <div className="re_comp_logo"><img src={this.state.logo} alt="logo"/></div> */}
@@ -398,8 +398,8 @@ class Recommend extends Component {
                           this.state.type == 3?
                           <div className="re_lists_title">
                             <span>类型</span>
+                            <span>具体服务</span>
                             <span>口岸</span>
-                            <span></span>
                           </div>:undefined
                         }
                         {/* <ul className="re_list">
@@ -427,15 +427,15 @@ class Recommend extends Component {
                             }
                             {
                                 this.state.ptrowCount < 2?
-                                <li className="re_lists"></li>:undefined
+                                <li className="zj_re_lists"></li>:undefined
                             }
                             {
                                 this.state.ptrowCount < 3?
-                                <li className="re_lists"></li>:undefined
+                                <li className="zj_re_lists"></li>:undefined
                             }
                             {
                                 this.state.ptrowCount < 4?
-                                <li className="re_lists"></li>:undefined
+                                <li className="zj_re_lists"></li>:undefined
                             }
                           </ul>:undefined
                         }
@@ -447,15 +447,15 @@ class Recommend extends Component {
                             }
                             {
                                 this.state.tzrowCount < 2?
-                                <li className="re_lists"></li>:undefined
+                                <li className="zj_re_lists"></li>:undefined
                             }
                             {
                                 this.state.tzrowCount < 3?
-                                <li className="re_lists"></li>:undefined
+                                <li className="zj_re_lists"></li>:undefined
                             }
                             {
                                 this.state.tzrowCount < 4?
-                                <li className="re_lists"></li>:undefined
+                                <li className="zj_re_lists"></li>:undefined
                             }
                           </ul>:undefined
                         }
@@ -467,15 +467,15 @@ class Recommend extends Component {
                             }
                             {
                                 this.state.fwrowCount < 2?
-                                <li className="re_lists"></li>:undefined
+                                <li className="zj_re_lists"></li>:undefined
                             }
                             {
                                 this.state.fwrowCount < 3?
-                                <li className="re_lists"></li>:undefined
+                                <li className="zj_re_lists"></li>:undefined
                             }
                             {
                                 this.state.fwrowCount < 4?
-                                <li className="re_lists"></li>:undefined
+                                <li className="zj_re_lists"></li>:undefined
                             }
                           </ul>:undefined
                         }

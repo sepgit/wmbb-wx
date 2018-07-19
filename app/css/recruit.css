@@ -231,10 +231,44 @@ body {
 .re_lists_paging span:nth-child(3) {
   text-align: center;
 }
+.re_lists {
+  position: relative;
+  z-index: 1000;
+}
+.re_lists:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  top: 22%;
+  right: 0;
+  z-index: 1100;
+  border-style: solid;
+  border-width: 0.83333333rem;
+  border-color: rgba(153, 153, 102, 0) rgba(153, 153, 102, 0) rgba(153, 153, 102, 0) #999999;
+}
 .re_lists:nth-child(even) {
   background: #f3f3f3;
 }
 .re_lists:nth-child(odd) {
+  background: #e6e6e6;
+}
+.zj_re_lists {
+  display: flex;
+  justify-content: space-between;
+  height: 3.33333333rem;
+}
+.zj_re_lists span {
+  height: 3.33333333rem;
+  width: 33%;
+  font-size: 1.33333333rem;
+  line-height: 3.33333333rem;
+  text-align: center;
+}
+.zj_re_lists:nth-child(even) {
+  background: #f3f3f3;
+}
+.zj_re_lists:nth-child(odd) {
   background: #e6e6e6;
 }
 .re_comp_detail {

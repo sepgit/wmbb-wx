@@ -309,6 +309,7 @@ class AuthComps extends Component {
   render() {
     return (
       <div>
+         <div className="title_fixed_space"></div>
       {
         this.state.Pagestatus=='List'?
           this.renderList():undefined
