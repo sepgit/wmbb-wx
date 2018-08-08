@@ -46,11 +46,26 @@ body {
 .text_cen {
   text-align: center;
 }
+.text_right {
+  text-align: right;
+}
 .mar0 {
   margin: 0 auto;
 }
 .titleback {
   height: 4.33333333rem;
+}
+.erweima {
+  width: 15rem;
+  height: 15rem;
+  position: absolute;
+  top: 5.83333333rem;
+  left: 0.83333333rem;
+}
+.erweima img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .re_input {
   height: 4rem;
@@ -72,6 +87,9 @@ body {
   background: #0b91f0;
   font-size: 2.5rem;
   color: #fff;
+}
+.r_titele_paddingRight {
+  padding-left: 60%;
 }
 .re_conditions {
   margin: 3.83333333rem auto;
@@ -295,7 +313,6 @@ body {
 .re_comp_compname .re_comp_name {
   height: 4.16666667rem;
   line-height: 4.16666667rem;
-  text-align: center;
   font-size: 1.66666667rem;
 }
 .re_comp_tips {

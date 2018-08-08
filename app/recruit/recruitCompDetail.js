@@ -193,18 +193,21 @@ class ReCompDetail extends Component {
             })
         }
         // console.log(this.state.logo);
+        let logo = HTTPED +'/images/ewm.png'
         return (
             <div>
             {    
                this.state.showPage == 'companyDetail' ?
                <div className="re_comp_detail">
-                <BackT tit="公司详情" backonClick={this.props.backto}></BackT>
+                <BackT tit="" backonClick={this.props.backto}></BackT>
                 <div className="titleback"></div>
-                <div className="r_titele text_cen">公司详情</div>
-                <div className="re_comp_compname">
-                    <div className="bg"></div>
+                <div className="r_titele r_titele_paddingRight">招聘详情</div>
+                <div className="re_comp_compname ">
+                    {/* <div className="bg"></div> */}
                     {/* <div className="re_comp_logo"><img src={this.state.logo} alt="logo"/></div> */}
-                    <div className="re_comp_name">{this.state.compArr.compName}</div>
+                    <div className="re_comp_name r_titele_paddingRight">{this.state.compArr.compName}</div>
+                    
+                    <div className="erweima"><img src={logo} alt="logo"/></div>
                 </div>
                 <div className="re_comp_tips">招聘信息</div>
                 {

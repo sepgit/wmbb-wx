@@ -107,7 +107,7 @@ class Recommend extends Component {
                     <li>2.{datas.adv2}</li>
                     <li>3.{datas.adv3}</li>
                 </ul>
-                <div  className="expertList_to" onClick={this.todetail} num={datas.experts} comp={datas.comp} user={datas.user}>前往详情</div>
+                <div  className="expertList_to" onClick={this.todetail} num={datas.experts} comp={datas.comp} user={datas.user}>更多信息</div>
             </div>
         </div>
     } )
@@ -323,6 +323,7 @@ class Recommend extends Component {
     })
   }
   render() {
+    let logo = HTTPED +'/images/ewm.png'
     return (
       <div>
         {
@@ -346,14 +347,14 @@ class Recommend extends Component {
           this.state.Pagestatus == 'recommendDetail' ?
           <div>
             <div className="re_comp_detail">
-                <BackT tit="专家推荐" backonClick={this.torecommend} ></BackT>
+                <BackT tit="" backonClick={this.torecommend} ></BackT>
                 <div className="titleback"></div>
-                {/* <div className="r_titele text_cen">专家推荐</div> */}
+                <div className="r_titele r_titele_paddingRight">专家推荐</div>
                 <div className="re_comp_compname">
-                   
+                    <div className="erweima"><img src={logo} alt="logo"/></div>
                     {/* <div className="re_comp_logo"><img src={this.state.logo} alt="logo"/></div> */}
-                    <div className="re_comp_name">{this.state.expertsDetail.name}</div>
-                    <div className="re_comp_name">{this.state.compDetail.compName}</div>
+                    <div className="re_comp_name r_titele_paddingRight">{this.state.expertsDetail.name}</div>
+                    <div className="re_comp_name r_titele_paddingRight">{this.state.compDetail.compName}</div>
                 </div>
                 <div className="re_comp_tips">优势</div>
                 <div>
@@ -397,7 +398,7 @@ class Recommend extends Component {
                         {
                           this.state.type == 3?
                           <div className="re_lists_title">
-                            <span>类型</span>
+                            <span>服务</span>
                             <span>具体服务</span>
                             <span>口岸</span>
                           </div>:undefined
